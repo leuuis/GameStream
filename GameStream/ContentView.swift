@@ -11,25 +11,28 @@ struct ContentView: View {
     
     var body: some View {
         
-        ZStack {
-                   
-            Spacer()
+        NavigationStack {
             
-            Color(red: 19/255, green: 30/255, blue: 53/255).ignoresSafeArea()
-            
-            VStack(){
+            ZStack {
+                       
+                Spacer()
                 
-                Image("appLogo").resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width:250)
-                    .padding(.bottom, 42.0)
+                Color(red: 19/255, green: 30/255, blue: 53/255).ignoresSafeArea()
                 
-                SignInSignUpView()
+                VStack(){
+                    
+                    Image("appLogo").resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:250)
+                        .padding(.bottom, 42.0)
+                    
+                    SignInSignUpView()
+                }
+                
+    //            Image("pantalla1").resizable()
+                
             }
-            
-//            Image("pantalla1").resizable()
-            
-        }
+        }.navigationBarHidden(true)
     }
 }
 
@@ -49,7 +52,6 @@ struct SignInSignUpView: View{
                     
                     inSignInView = true
                     
-                    print("Pantalla inicio de sesion")
                 }
                 .foregroundColor(inSignInView ? .white : .gray)
                 
@@ -58,8 +60,6 @@ struct SignInSignUpView: View{
                 Button("REGÍSTRATE") {
                     
                     inSignInView = false
-                    
-                    print("Pantalla de registro")
                     
                 }
                 .foregroundColor(inSignInView ? .gray : .white)
@@ -241,6 +241,7 @@ struct SignInView: View {
     
     @State var email:String = ""
     @State var _password:String = ""
+    @State var isHomeViewActive:Bool = false
     
     var body: some View {
         
@@ -334,15 +335,23 @@ struct SignInView: View {
                 
             }.padding(.horizontal, 77.0)
             
+            NavigationLink(value: "home"){
+                EmptyView()
+            }.navigationDestination(isPresented: $isHomeViewActive){
+                    HomeView()
+            }
+            
         }
         
     }
     
-}
-
-func signIn() {
-    
-    print("Estoy iniciando sesión...")
+    func signIn() {
+        
+        print("Estoy iniciando sesión...")
+        
+        isHomeViewActive = true
+        
+    }
     
 }
 

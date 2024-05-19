@@ -14,6 +14,7 @@
 		637E16552BF97B3000E52C1C /* GameStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E16542BF97B3000E52C1C /* GameStreamTests.swift */; };
 		637E165F2BF97B3000E52C1C /* GameStreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E165E2BF97B3000E52C1C /* GameStreamUITests.swift */; };
 		637E16612BF97B3000E52C1C /* GameStreamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E16602BF97B3000E52C1C /* GameStreamUITestsLaunchTests.swift */; };
+		63E5DE042BFAA68D002030C8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E5DE032BFAA68D002030C8 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		637E165A2BF97B3000E52C1C /* GameStreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameStreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		637E165E2BF97B3000E52C1C /* GameStreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStreamUITests.swift; sourceTree = "<group>"; };
 		637E16602BF97B3000E52C1C /* GameStreamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStreamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		63E5DE032BFAA68D002030C8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				637E16432BF97B2F00E52C1C /* GameStreamApp.swift */,
 				637E16452BF97B2F00E52C1C /* ContentView.swift */,
+				63E5DE032BFAA68D002030C8 /* HomeView.swift */,
 				637E16472BF97B3000E52C1C /* Assets.xcassets */,
 				637E16492BF97B3000E52C1C /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E5DE042BFAA68D002030C8 /* HomeView.swift in Sources */,
 				637E16462BF97B2F00E52C1C /* ContentView.swift in Sources */,
 				637E16442BF97B2F00E52C1C /* GameStreamApp.swift in Sources */,
 			);
