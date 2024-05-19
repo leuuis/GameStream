@@ -107,7 +107,7 @@ struct SignInView: View {
             
             VStack (alignment: .leading){
                 
-                Text("Correo Electrónico").foregroundColor(Color("darkCyan"))
+                Text("Correo Electrónico").foregroundColor(Color("DarkCyan"))
                 
                 ZStack(alignment: .leading){
                     
@@ -119,13 +119,13 @@ struct SignInView: View {
                         
                     }
                     
-                    TextField("", text: $email)
+                    TextField("", text: $email).keyboardType(.emailAddress)
                     
                 }
                 
-                Divider().frame(height: 1).background(Color("darkCyan")).padding(.bottom)
+                Divider().frame(height: 1).background(Color("DarkCyan")).padding(.bottom)
                 
-                Text("Contraseña").foregroundColor(Color("darkCyan"))
+                Text("Contraseña").foregroundColor(Color("DarkCyan"))
                 
                 ZStack(alignment: .leading){
                     
@@ -141,8 +141,55 @@ struct SignInView: View {
                     
                 }
                 
-                Divider().frame(height: 1).background(Color("darkCyan")).padding(.bottom)
+                Divider().frame(height: 1).background(Color("DarkCyan")).padding(.bottom)
                 
+                Text("¿Olvidaste tu contraseña?")
+                    .font(.footnote)
+                    .frame(width: 300, alignment: .trailing)
+                    .foregroundColor(Color("DarkCyan"))
+                    .padding(.bottom)
+                
+                Button(action: signIn, label: {
+                    Text("INICIAR SESIÓN")
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(EdgeInsets(
+                            top: 11, leading: 18, bottom: 11, trailing: 18))
+                        .overlay(RoundedRectangle(cornerRadius: 6.0)
+                            .stroke(Color("DarkCyan"), lineWidth: 1.0).shadow(color:.white, radius: 6))
+                }).padding(.bottom)
+                
+                Text("Inicia sesión con redes sociales").frame( maxWidth: .infinity,  alignment: .center).foregroundColor(.white)
+                
+                HStack(){
+                    
+                    Button(action: {print ("Inicio de sesión con Facebook") }, label: {
+                        Text("Facebook")
+                            .font(.subheadline)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.white)
+                            .padding(.vertical, 3.0)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .background(Color("BlueGray"))
+                            .clipShape(RoundedRectangle(cornerRadius: 4.0))
+                            .padding()
+                    })
+                    
+                    Button(action: {print ("Inicio de sesión con Twitter") }, label: {
+                        Text("Twitter")
+                            .font(.subheadline)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.white)
+                            .padding(.vertical, 3.0)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .background(Color("BlueGray"))
+                            .clipShape(RoundedRectangle(cornerRadius: 4.0))
+                            .padding()
+                    })
+
+                    
+                }
                 
             }.padding(.horizontal, 77.0)
             
@@ -152,6 +199,11 @@ struct SignInView: View {
     
 }
 
+func signIn() {
+    
+    print("Estoy iniciando sesión...")
+    
+}
 
 #Preview {
     ContentView()
