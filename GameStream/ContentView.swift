@@ -9,14 +9,41 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        ZStack {
+                        
+            Color(red: 19/255, green: 30/255, blue: 53/255).ignoresSafeArea()
+            
+            VStack(){
+                
+                
+                Image("appLogo").resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width:250)
+                
+                InicioRegistroView()
+            }
+            
+//            Image("pantalla1").resizable()
+            
         }
-        .padding()
     }
+}
+
+struct InicioRegistroView: View{
+    
+    var body: some View {
+            
+        VStack(){
+            
+            HStack {
+                Text("INICIA SESION")
+                Text("REGÍSTRATE")
+            }
+            
+        }
+    }
+    
 }
 
 #Preview {
