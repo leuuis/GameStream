@@ -98,9 +98,55 @@ struct SignUpView: View {
 
 struct SignInView: View {
     
+    @State var email:String = ""
+    @State var _password:String = ""
+    
     var body: some View {
         
-        Text("Pantalla inicio de sesión")
+        ScrollView {
+            
+            VStack (alignment: .leading){
+                
+                Text("Correo Electrónico").foregroundColor(Color("darkCyan"))
+                
+                ZStack(alignment: .leading){
+                    
+                    if email.isEmpty{
+                        
+                        Text("ejemplo@gmail.com")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        
+                    }
+                    
+                    TextField("", text: $email)
+                    
+                }
+                
+                Divider().frame(height: 1).background(Color("darkCyan")).padding(.bottom)
+                
+                Text("Contraseña").foregroundColor(Color("darkCyan"))
+                
+                ZStack(alignment: .leading){
+                    
+                    if _password.isEmpty{
+                        
+                        Text("Escribe tu contraseña")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        
+                    }
+                    
+                    SecureField("", text: $_password)
+                    
+                }
+                
+                Divider().frame(height: 1).background(Color("darkCyan")).padding(.bottom)
+                
+                
+            }.padding(.horizontal, 77.0)
+            
+        }
         
     }
     
