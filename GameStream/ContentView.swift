@@ -35,7 +35,7 @@ struct ContentView: View {
 
 struct SignInSignUpView: View{
     
-    @State var inSignInView:Bool = false
+    @State var inSignInView:Bool = true
     
     var body: some View {
         
@@ -125,6 +125,7 @@ struct SignUpView: View {
             VStack (alignment: .leading){
                 
                 Text("Correo Electrónico*").foregroundColor(Color("DarkCyan"))
+                    .frame(width: 300, alignment: .leading)
                 
                 ZStack(alignment: .leading){
                     
@@ -136,7 +137,7 @@ struct SignUpView: View {
                         
                     }
                     
-                    TextField("", text: $email).keyboardType(.emailAddress)
+                    TextField("", text: $email).keyboardType(.emailAddress).foregroundColor(.white)
                     
                 }
                 
@@ -154,7 +155,7 @@ struct SignUpView: View {
                         
                     }
                     
-                    SecureField("", text: $_password)
+                    SecureField("", text: $_password).foregroundColor(.white)
                     
                 }
                 
@@ -172,7 +173,7 @@ struct SignUpView: View {
                         
                     }
                     
-                    SecureField("", text: $_passwordConfirm)
+                    SecureField("", text: $_passwordConfirm).foregroundColor(.white)
                     
                 }
                 
@@ -259,7 +260,7 @@ struct SignInView: View {
                         
                     }
                     
-                    TextField("", text: $email).keyboardType(.emailAddress)
+                    TextField("", text: $email).keyboardType(.emailAddress).foregroundColor(.white)
                     
                 }
                 
@@ -277,7 +278,7 @@ struct SignInView: View {
                         
                     }
                     
-                    SecureField("", text: $_password)
+                    SecureField("", text: $_password).foregroundColor(.white)
                     
                 }
                 
