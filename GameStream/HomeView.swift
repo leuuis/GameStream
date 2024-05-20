@@ -67,7 +67,7 @@ struct HomeScreenView:View {
         
         ZStack {
             
-            Color("Marine")
+            Color("Marine").ignoresSafeArea()
             
             VStack {
                 
@@ -93,7 +93,10 @@ struct HomeScreenView:View {
                     .background(Color("BlueGray"))
                     .clipShape(Capsule())
                 
-                SubHomeScreenView()
+                ScrollView(showsIndicators: false){
+                    SubHomeScreenView()
+                }
+                
                 
             }.padding(.horizontal, 18.0)
             
@@ -142,10 +145,125 @@ struct SubHomeScreenView:View {
                     .resizable()
                     .foregroundColor(.white)
                     .frame(width: 42, height: 42)
-                
-                
-                
+
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical)
+            
+            Text("CATEGORÍAS SUGERIDAS PARA TI").font(.title3).foregroundColor(.white).bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.top)
+            
+            ScrollView(.horizontal, showsIndicators: false){
+                HStack{
+                    
+                    Button(action: {print("Pulsando categoria FPS")}, label: {
+                        
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 6.0)
+                                .fill(Color("BlueGray"))
+                                .frame(width:160, height: 100)
+                            
+                            Image("FPS").resizable().scaledToFit().frame(width: 42, height: 42)
+                        }
+                        
+                    })
+                    
+                    Button(action: {print("Pulsando categoria RPG")}, label: {
+                        
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 6.0)
+                                .fill(Color("BlueGray"))
+                                .frame(width:160, height: 100)
+                            
+                            Image("RPG").resizable().scaledToFit().frame(width: 42, height: 42)
+                        }
+                        
+                    })
+                    
+                    Button(action: {print("Pulsando categoria OpenWorld")}, label: {
+                        
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 6.0)
+                                .fill(Color("BlueGray"))
+                                .frame(width:160, height: 100)
+                            
+                            Image("OpenWorld").resizable().scaledToFit().frame(width: 42, height: 42)
+                        }
+                        
+                    })
+                    
+                }
+            }
+            
+            Text("RECOMENDADOS PARA TI").font(.title3).foregroundColor(.white).bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.top)
+            
+            ScrollView(.horizontal, showsIndicators: false){
+                
+                HStack{
+                    
+                    Button(action: {
+                        url = urlVideos[1]
+                        print("URL: \(url)")
+                        isVideoPlayerActive = true
+                    }, label: {
+                        Image("13-swiftuiapps-2105-battkefield").resizable().scaledToFit().frame(width: 240, height: 135)
+                    })
+                    
+                    Button(action: {
+                        url = urlVideos[2]
+                        print("URL: \(url)")
+                        isVideoPlayerActive = true
+                    }, label: {
+                        Image("13-swiftuiapps-2105-uncharted4").resizable().scaledToFit().frame(width: 240, height: 135)
+                    })
+                    
+                    Button(action: {
+                        url = urlVideos[3]
+                        print("URL: \(url)")
+                        isVideoPlayerActive = true
+                    }, label: {
+                        Image("13-swiftuiapps-2105-spiderman").resizable().scaledToFit().frame(width: 240, height: 135)
+                    })
+                    
+                }
+            }
+            
+            Text("VIDEOS QUE PODRÍAN GUSTARTE").font(.title3).foregroundColor(.white).bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.top)
+            
+            ScrollView(.horizontal, showsIndicators: false){
+                
+                HStack{
+                    
+                    Button(action: {
+                        url = urlVideos[4]
+                        print("URL: \(url)")
+                        isVideoPlayerActive = true
+                    }, label: {
+                        Image("13-swiftuiapps-2105-destiny_complete").resizable().scaledToFit().frame(width: 240, height: 135)
+                    })
+                    
+                    Button(action: {
+                        url = urlVideos[5]
+                        print("URL: \(url)")
+                        isVideoPlayerActive = true
+                    }, label: {
+                        Image("13-swiftuiapps-2105-farcry4").resizable().scaledToFit().frame(width: 240, height: 135)
+                    })
+                    
+                    Button(action: {
+                        url = urlVideos[6]
+                        print("URL: \(url)")
+                        isVideoPlayerActive = true
+                    }, label: {
+                        Image("13-swiftuiapps-2105-lastofus").resizable().scaledToFit().frame(width: 240, height: 135)
+                    })
+                    
+                }
+            }
+            
         }
         
         NavigationLink(value: "videoPlayer"){
