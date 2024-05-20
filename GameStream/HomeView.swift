@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct HomeView: View {
     
@@ -54,6 +55,7 @@ struct HomeView: View {
         UITabBar.appearance().isTranslucent = true
         
         print("Iniciando las vistas de home")
+        
     }
 }
 
@@ -91,6 +93,8 @@ struct HomeScreenView:View {
                     .background(Color("BlueGray"))
                     .clipShape(Capsule())
                 
+                SubHomeScreenView()
+                
             }.padding(.horizontal, 18.0)
             
         }
@@ -103,6 +107,55 @@ struct HomeScreenView:View {
     }
 }
 
+struct SubHomeScreenView:View {
+    @State var isVideoPlayerActive:Bool = true
+    @State var url:String = "https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4"
+    @State var isPlayerActive:Bool = false
+    let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256671638/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256720061/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256814567/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256705156/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256801252/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256757119/movie480.mp4"]
+        
+    var body: some View {
+        
+        VStack{
+            Text("LOS MÁS POPULARES")
+                .font(.title3)
+                .foregroundColor(.white)
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.top)
+            
+            ZStack{
+                
+                Button(action: {
+                    url = urlVideos[0]
+                    print("URL: \(url)")
+                    isVideoPlayerActive = true
+                }, label: {
+                    VStack(spacing:0){
+                        Image("theWitcher").resizable().scaledToFit()
+                        
+                        Text("The Witcher 3")
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            .background(Color("BlueGray"))
+                    }
+                })
+                
+                Image(systemName: "play.circle.fill")
+                    .resizable()
+                    .foregroundColor(.white)
+                    .frame(width: 42, height: 42)
+                
+                
+                
+            }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical)
+        }
+        
+        NavigationLink(value: "videoPlayer"){
+            EmptyView()
+        }.navigationDestination(isPresented: $isVideoPlayerActive){
+            VideoPlayer(player: AVPlayer(url: URL(string: url)!)).frame(width: 400, height: 400)
+        }
+
+    }
+}
 #Preview {
     HomeView()
 }
