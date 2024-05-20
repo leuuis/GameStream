@@ -59,6 +59,8 @@ struct HomeView: View {
 
 struct HomeScreenView:View {
     
+    @State var searchText:String = ""
+    
     var body: some View{
         
         ZStack {
@@ -67,13 +69,37 @@ struct HomeScreenView:View {
             
             VStack {
                 
-                Text("hOME SCREEN").foregroundColor(.white)
+                Image("appLogo").resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width:250)
+                    .padding(.bottom, 42.0)
+                
+                HStack{
+                    
+                    Button(action: searchVideo, label: {
+                        Image(systemName: "magnifyingglass").foregroundColor(searchText.isEmpty ? Color(.yellow) : Color("DarkCyan") )
+                    })
+                    
+                TextField(
+                    text:$searchText,
+                    label: {
+                        Text("Buscar un video").foregroundColor(Color(red: 174/255, green: 177/255, blue: 185/255, opacity: 1.0))
+                    }).foregroundColor(.white)
+                    
+                }
+                    .padding([.top, .leading, .bottom], 11.0)
+                    .background(Color("BlueGray"))
+                    .clipShape(Capsule())
                 
             }.padding(.horizontal, 18.0)
             
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+    }
+    
+    func searchVideo() {
+        print("El usuario esta buscando un video...")
     }
 }
 
